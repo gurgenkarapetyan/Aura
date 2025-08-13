@@ -1,9 +1,9 @@
 // Copyright Gurgen Karapetyan
 
 
-#include "UI/WidgetController/AuraWidgetContoller.h"
+#include "UI/WidgetController/AuraWidgetController.h"
 
-void UAuraWidgetContoller::SetWidgetControllerParams(const FWidgetControllerParams& WCParams)
+void UAuraWidgetController::SetWidgetControllerParams(const FWidgetControllerParams& WCParams)
 {
 	PlayerController = WCParams.PlayerController;
 	PlayerState = WCParams.PlayerState;

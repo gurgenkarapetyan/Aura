@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "AuraWidgetContoller.generated.h"
+#include "AuraWidgetController.generated.h"
 
 class UAttributeSet;
 class UAbilitySystemComponent;
@@ -37,7 +37,7 @@ struct FWidgetControllerParams
  * 
  */
 UCLASS()
-class AURA_API UAuraWidgetContoller : public UObject
+class AURA_API UAuraWidgetController : public UObject
 {
 	GENERATED_BODY()
 
