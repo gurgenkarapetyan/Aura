@@ -5,9 +5,6 @@
 #include "AbilitySystemComponent.h"
 #include "AbilitySystemBlueprintLibrary.h"
 
-#include "AbilitySystem/AuraAttributeSet.h"
-#include "Components/SphereComponent.h"
-
 AAuraEffectActor::AAuraEffectActor()
 {
 	PrimaryActorTick.bCanEverTick = false;
