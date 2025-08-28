@@ -30,7 +30,6 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
 		FName("Attributes.Primary.Vigor"),
 		FString("Increases Health")
 	);
-
 	
 	/**
 	 *	Secondary Attributes

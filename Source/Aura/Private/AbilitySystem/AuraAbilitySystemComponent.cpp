@@ -11,7 +11,7 @@ void UAuraAbilitySystemComponent::AbilityActorInfoSet()
 
 	const FAuraGameplayTags& GameplayTags = FAuraGameplayTags::Get();
 	// GameplayTags.Attribute_Secondary_Armor.ToString();
-	GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, FString::Printf(TEXT("TAG: %s"), *GameplayTags.Attributes_Secondary_Armor.ToString()));
+	// GEngine->AddOnScreenDebugMessage(-1, 10.f, FColor::Red, FString::Printf(TEXT("TAG: %s"), *GameplayTags.Attributes_Secondary_Armor.ToString()));
 }
 
 void UAuraAbilitySystemComponent::EffectApply(UAbilitySystemComponent* AbilitySystemComponent,
