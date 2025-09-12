@@ -33,6 +33,24 @@ public:
 
 	/** @brief Returns this character's attribute set */
 	UAttributeSet* GetAttributeSet() const { return AttributeSet; }
+
+	/**
+	 * @brief Montage to Play on hit reaction.
+	 * 
+	 * @return montage to be played.
+	 */
+	virtual UAnimMontage* GetHitReactMontage_Implementation() override;
+
+	/**
+	 * @brief Handles character death logic.
+	 */
+	virtual void Die() override;
+
+	/**
+	 * @brief Multicast RPC that notifies all clients about this character's death.
+	 */
+	UFUNCTION(NetMulticast, Reliable)
+	virtual void MulticastHandleDeath();
 	
 protected:
 	/** @brief Called when play begins */
@@ -61,6 +79,25 @@ protected:
 	 * @return Socket location vector.
 	 */
 	virtual FVector GetCombatSocketLocation() override;
+
+	/**
+	 * @brief Starts dissolve effect on character and weapon mesh.
+	 */
+	void Dissolve();
+
+	/**
+	 * @brief Blueprint event to play dissolve timeline on a character material.
+	 * @param DynamicMaterialInstance Dynamic material instance to animate.
+	 */
+	UFUNCTION(BlueprintImplementableEvent)
+	void StartDissolveTimeLine(UMaterialInstanceDynamic* DynamicMaterialInstance);
+
+	/**
+	 * @brief Blueprint event to play dissolve timeline on a weapon material.
+	 * @param DynamicMaterialInstance Dynamic material instance to animate.
+	 */
+	UFUNCTION(BlueprintImplementableEvent)
+	void StartWeaponDissolveTimeLine(UMaterialInstanceDynamic* DynamicMaterialInstance);
 	
 protected:
 	/** @brief Weapon mesh */
@@ -91,8 +128,22 @@ protected:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Attributes")
 	TSubclassOf<UGameplayEffect> DefaultVitalAttributes;
 
+	/* Dissolve Effects */
+	
+	/* @brief Material instance used for character dissolve effect */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TObjectPtr<UMaterialInstance> DissolveMaterialInstance;
+	
+	/* @brief Material instance used for weapon dissolve effect */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TObjectPtr<UMaterialInstance> WeaponDissolveMaterialInstance;
+
 private:
 	/** @brief List of startup abilities */
 	UPROPERTY(EditAnywhere, Category = "Abilities")
 	TArray<TSubclassOf<UGameplayAbility>> StartupAbilities;
+
+	/** @brief hit react montage */
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	TObjectPtr<UAnimMontage> HitReactMontage;
 };

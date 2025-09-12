@@ -32,4 +32,17 @@ public:
 	 */
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void UpdateFacingTarget(const FVector& Target);
+
+	/**
+	 * @brief Montage to Play on hit reaction.
+	 * 
+	 * @return montage to be played.
+	 */
+	UFUNCTION(BLueprintNativeEvent, BlueprintCallable)
+	UAnimMontage* GetHitReactMontage();
+
+	/**
+	 * @brief Handles character death logic.
+	 */
+	virtual void Die() = 0;
 };

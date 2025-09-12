@@ -39,6 +39,14 @@ public:
 	 */
 	virtual int32 GetPlayerLevel() override;
 
+	/**
+	 * @brief Handles character death logic.
+	 */
+	virtual void Die() override;
+	
+	void HitReactTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
+
+	
 protected:
 	/** @brief Called when play begins */
 	virtual void BeginPlay() override;
@@ -48,7 +56,7 @@ protected:
 
 	/** @brief Applies class-specific default attributes */
 	virtual void InitializeDefaultAttributes() const;
-	
+
 public:
 	/** @brief Broadcast when health changes */
 	UPROPERTY(BlueprintAssignable)
@@ -57,6 +65,16 @@ public:
 	/** @brief Broadcast when max health changes */
 	UPROPERTY(BlueprintAssignable)
 	FAttibuteChangedSignature OnMaxHealthChanged;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Combat")
+	bool bHitReacting = false;
+	
+	UPROPERTY(BlueprintReadOnly, Category = "Combat")
+	float BaseWalkSpeed = 250.f;
+
+	/** @brief Charcter LifeSpan */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
+	float LifeSpan = 5.f;
 	
 protected:
 	/** @brief Health bar widget component */

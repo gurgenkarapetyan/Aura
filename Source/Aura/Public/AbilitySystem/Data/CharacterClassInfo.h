@@ -6,6 +6,7 @@
 #include "Engine/DataAsset.h"
 #include "CharacterClassInfo.generated.h"
 
+class UGameplayAbility;
 class UGameplayEffect;
 
 /** @brief Enum of available character classes */
@@ -60,4 +61,8 @@ public:
 	/** @brief GameplayEffect for vital attributes common to all classes */
 	UPROPERTY(EditDefaultsOnly, Category = "Commmon Class Defaults")
 	TSubclassOf<UGameplayEffect> VitalAttributes;
+
+	/** @brief List of common abilities */
+	UPROPERTY(EditDefaultsOnly, Category = "Commmon Class Defaults")
+	TArray<TSubclassOf<UGameplayAbility>> CommonAbilities;
 };
