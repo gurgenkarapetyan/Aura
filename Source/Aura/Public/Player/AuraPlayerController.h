@@ -6,6 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "AuraPlayerController.generated.h"
 
+class UDamageTextWidgetComponent;
 class UAuraInputConfig;
 class UInputMappingContext;
 class UInputAction;
@@ -33,6 +34,14 @@ public:
 
 	/** @brief Ticks controller logic each frame */
 	virtual void PlayerTick(float DeltaTime) override;
+
+	/**
+	 * @brief Client RPC that displays floating damage numbers on character.
+	 * @param DamageAmount Amount of damage to show.
+	 * @param TargetCharacter Character above which text will be displayed
+	 */
+	UFUNCTION(Client, Reliable)
+	void ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter);
 	
 protected:
 	/** @brief Called when play begins */
@@ -121,4 +130,8 @@ private:
 	/** @brief Spline used for autorun pathing */
 	UPROPERTY(VisibleAnywhere)
 	TObjectPtr<USplineComponent> Spline;
+
+	/** @brief WidgetComponent used to spawn amount of damage character receives */
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<UDamageTextWidgetComponent> DamageTextComponentClass;
 };

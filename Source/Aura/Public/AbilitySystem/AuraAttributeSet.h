@@ -90,37 +90,62 @@ private:
 	 * @param Props Out struct populated with effect properties.
 	 */
 	void SetEffectProperties(const FGameplayEffectModCallbackData& Data,  FEffectProperties& Props) const;
+
+	/**
+	 * @brief Displays floating damage text for the target.
+	 *
+	 * Spawns a damage number on the target character
+	 *
+	 * @param Props Effect properties containing source and target info.
+	 * @param Damage Amount of damage dealt.
+	 */
+	void ShowFloatingText(const FEffectProperties& Props, float Damage) const;
 	
 	/** @brief Replication notification for Strength */
 	UFUNCTION() void OnRep_Strength(const FGameplayAttributeData& OldStrength) const;
+	
 	/** @brief Replication notification for Intelligence */
 	UFUNCTION() void OnRep_Intelligence(const FGameplayAttributeData& OldIntelligence) const;
+	
 	/** @brief Replication notification for Resilience */
 	UFUNCTION() void OnRep_Resilience(const FGameplayAttributeData& OldResilience) const;
+	
 	/** @brief Replication notification for Vigor */
 	UFUNCTION() void OnRep_Vigor(const FGameplayAttributeData& OldVigor) const;
+	
 	/** @brief Replication notification for Armor */
 	UFUNCTION() void OnRep_Armor(const FGameplayAttributeData& OldArmor) const;
+	
 	/** @brief Replication notification for Armor Penetration */
 	UFUNCTION() void OnRep_ArmorPenetration(const FGameplayAttributeData& OldArmorPenetration) const;
+	
 	/** @brief Replication notification for Block Chance */
 	UFUNCTION() void OnRep_BlockChance(const FGameplayAttributeData& OldBlockChance) const;
+	
 	/** @brief Replication notification for Critical Hit Chance */
 	UFUNCTION() void OnRep_CriticalHitChance(const FGameplayAttributeData& OldCriticalHitChance) const;
+	
 	/** @brief Replication notification for Critical Hit Damage */
 	UFUNCTION() void OnRep_CriticalHitDamage(const FGameplayAttributeData& OldCriticalHitDamage) const;
+	
 	/** @brief Replication notification for Critical Hit Resistance */
 	UFUNCTION() void OnRep_CriticalHitResistance(const FGameplayAttributeData& OldCriticalHitResistance) const;
+	
 	/** @brief Replication notification for Health Regeneration */
 	UFUNCTION() void OnRep_HealthRegeneration(const FGameplayAttributeData& OldHealthRegeneration) const;
+	
 	/** @brief Replication notification for Mana Regeneration */
 	UFUNCTION() void OnRep_ManaRegeneration(const FGameplayAttributeData& OldManaRegeneration) const;
+	
 	/** @brief Replication notification for Max Health */
 	UFUNCTION() void OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth) const;
+	
 	/** @brief Replication notification for Max Mana */
 	UFUNCTION() void OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) const;
+	
 	/** @brief Replication notification for Health */
 	UFUNCTION() void OnRep_Health(const FGameplayAttributeData& OldHealth) const;
+	
 	/** @brief Replication notification for Mana */
 	UFUNCTION() void OnRep_Mana(const FGameplayAttributeData& OldMana) const;
 	
