@@ -6,7 +6,6 @@
 #include "UObject/Interface.h"
 #include "CombatInterface.generated.h"
 
-// This class does not need to be modified.
 UINTERFACE(MinimalAPI, BlueprintType)
 class UCombatInterface : public UInterface
 {
@@ -14,18 +13,23 @@ class UCombatInterface : public UInterface
 };
 
 /**
- * 
+ * @brief Interface for combat-related functionality.
  */
 class AURA_API ICombatInterface
 {
 	GENERATED_BODY()
 
-	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
+	/** @brief Returns the character’s level */
 	virtual int32 GetPlayerLevel();
 
+	/** @brief Returns the location of the combat socket */
 	virtual FVector GetCombatSocketLocation();
 
+	/**
+	 * @brief Updates actor facing direction toward target.
+	 * @param Target World position to face.
+	 */
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
 	void UpdateFacingTarget(const FVector& Target);
 };

@@ -6,7 +6,6 @@
 #include "UObject/Interface.h"
 #include "EnemyInterface.generated.h"
 
-// This class does not need to be modified.
 UINTERFACE(MinimalAPI)
 class UEnemyInterface : public UInterface
 {
@@ -14,13 +13,16 @@ class UEnemyInterface : public UInterface
 };
 
 /**
- * 
+ * @brief Interface for enemy highlighting functionality.
  */
 class AURA_API IEnemyInterface
 {
 	GENERATED_BODY()
 
 public:
+	/** @brief Highlights the enemy actor */
 	virtual void HighlightActor() = 0;
+
+	/** @brief Removes highlight from the enemy actor */
 	virtual void UnHighlightActor() = 0;
 };
