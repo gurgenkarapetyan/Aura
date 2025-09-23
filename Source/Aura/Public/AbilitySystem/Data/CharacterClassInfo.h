@@ -65,4 +65,10 @@ public:
 	/** @brief List of common abilities */
 	UPROPERTY(EditDefaultsOnly, Category = "Commmon Class Defaults")
 	TArray<TSubclassOf<UGameplayAbility>> CommonAbilities;
+
+	/** 
+	* @brief Curve Table that defines coefficients for damage calculation.
+	*/
+	UPROPERTY(EditDefaultsOnly, Category = "Commmon Class Defaults|Damage")
+	TObjectPtr<UCurveTable> DamageCalculationCoefficients;
 };
