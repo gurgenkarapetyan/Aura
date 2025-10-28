@@ -98,8 +98,10 @@ private:
 	 *
 	 * @param Props Effect properties containing source and target info.
 	 * @param Damage Amount of damage dealt.
+	 * @param bBlockedHit Indicates whether the hit was blocked.
+	 * @param bCriticalHit Indicates whether the hit was a critical strike.
 	 */
-	void ShowFloatingText(const FEffectProperties& Props, float Damage) const;
+	void ShowFloatingText(const FEffectProperties& Props, float Damage, bool bBlockedHit, bool bCriticalHit) const;
 	
 	/** @brief Replication notification for Strength */
 	UFUNCTION() void OnRep_Strength(const FGameplayAttributeData& OldStrength) const;
