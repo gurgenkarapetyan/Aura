@@ -39,9 +39,11 @@ public:
 	 * @brief Client RPC that displays floating damage numbers on character.
 	 * @param DamageAmount Amount of damage to show.
 	 * @param TargetCharacter Character above which text will be displayed
+	 * @param bBlockedHit Indicates whether the hit was blocked.
+	 * @param bCriticalHit Indicates whether the hit was a critical strike.
 	 */
 	UFUNCTION(Client, Reliable)
-	void ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter);
+	void ShowDamageNumber(float DamageAmount, ACharacter* TargetCharacter, bool bBlockedHit, bool bCriticalHit);
 	
 protected:
 	/** @brief Called when play begins */

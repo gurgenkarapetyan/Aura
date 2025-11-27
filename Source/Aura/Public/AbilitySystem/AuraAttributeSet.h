@@ -150,6 +150,18 @@ private:
 	
 	/** @brief Replication notification for Mana */
 	UFUNCTION() void OnRep_Mana(const FGameplayAttributeData& OldMana) const;
+
+	/** @brief Replication notification for Fire Resistance */
+	UFUNCTION() void OnRep_FireResistance(const FGameplayAttributeData& OldFireResistance) const;
+	
+	/** @brief Replication notification for Lightning Resistance */
+	UFUNCTION() void OnRep_LightningResistance(const FGameplayAttributeData& OldLightningResistance) const;
+	
+	/** @brief Replication notification for Arcane Resistance */
+	UFUNCTION() void OnRep_ArcaneResistance(const FGameplayAttributeData& OldArcaneResistance) const;
+	
+	/** @brief Replication notification for Physical Resistance */
+	UFUNCTION() void OnRep_PhysicalResistance(const FGameplayAttributeData& OldPhysicalResistance) const;
 	
 public:
 	/**
@@ -230,6 +242,30 @@ public:
 	FGameplayAttributeData MaxMana;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxMana);
 
+	/**
+	 * Resistance Attributes
+	 */
+	
+	/** @brief Fire resistance (resistance attribute) */
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_FireResistance, Category = "Resistance Attributes")
+	FGameplayAttributeData FireResistance;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, FireResistance);
+
+	/** @brief Lightning resistance (resistance attribute) */
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_LightningResistance, Category = "Resistance Attributes")
+	FGameplayAttributeData LightningResistance;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, LightningResistance);
+
+	/** @brief Arcane resistance (resistance attribute) */
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_ArcaneResistance, Category = "Resistance Attributes")
+	FGameplayAttributeData ArcaneResistance;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, ArcaneResistance);
+
+	/** @brief Physical resistance (resistance attribute) */
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_PhysicalResistance, Category = "Resistance Attributes")
+	FGameplayAttributeData PhysicalResistance;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, PhysicalResistance);
+	
 	/**
 	 * Vital Attributes
 	 */

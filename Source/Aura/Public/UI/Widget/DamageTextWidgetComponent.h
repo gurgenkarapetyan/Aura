@@ -21,7 +21,9 @@ public:
 	 * @brief set damage widget text
 	 * 
 	 * @param Damage amount of damage received
+	 * @param bBlockedHit Indicates whether the hit was blocked.
+	 * @param bCriticalHit Indicates whether the hit was a critical strike.
 	 */
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable)
-	void SetDamageText(float Damage);
+	void SetDamageText(float Damage, bool bBlockedHit, bool bCriticalHit);
 };
